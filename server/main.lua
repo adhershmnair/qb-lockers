@@ -72,9 +72,7 @@ RegisterNetEvent("qb-lockers:server:DeleteLocker", function(id)
 			if result[1] then
 				for k, v in pairs(result) do
 					if tostring(v.lockerid) == tostring(lockerid) and v.citizenid == plyIdentifier then
-						MySQL.query("DELETE FROM stashitems WHERE stash = ?", {
-							v.lockerid
-						});
+                        MySQL.query('DELETE FROM inventories WHERE identifier = ?', { v.lockerid })
 						MySQL.query("DELETE FROM lockers WHERE lockerid = ?", {
 							v.lockerid
 						}, function(result)
