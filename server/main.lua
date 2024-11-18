@@ -138,6 +138,6 @@ RegisterNetEvent("qb-lockers:openInventory", function(lockerId)
 	if lockerInventory then
 		InventoryItems = lockerInventory.items;
 	end;
-	TriggerEvent("qb-inventory:server:addInventoryToCache", lockerId, InventoryItems);
+	exports["qb-inventory"]:SetInventory(lockerId, InventoryItems)
 	exports["qb-inventory"]:OpenInventory(src, lockerId);
 end);
